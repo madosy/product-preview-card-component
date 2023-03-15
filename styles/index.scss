@@ -11,10 +11,13 @@ $very-dark-blue: hsl(212, 21%, 14%);
 $dark-grayish-blue: hsl(228, 12%, 48%);
 $white: hsl(0, 0%, 100%);
 
+html {
+    font-size: 16px;
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-size: 16px;
     background-color: $cream;
     height: 100vh;
 
@@ -27,7 +30,7 @@ body {
 .product-container {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-template-rows: min-content;
 
     max-width: 600px;
@@ -39,6 +42,7 @@ body {
         background-size: cover;
         background-position-y: center;
         border-radius: 12px 0 0 12px;
+        min-height: 240px;
     }
 
     .details {
@@ -142,7 +146,8 @@ body {
     text-align: center;
     font-family: $san-serif;
     color: $dark-grayish-blue;
-    margin: 20px auto;
+    margin: 20px auto 0px;
+    align-self: flex-end;
 }
 
 .attribution a {
@@ -151,8 +156,29 @@ body {
 }
 
 @media screen and (max-width: 700px) {
+
     body {
-        
+        padding: 30px 15px;
+        align-items: stretch;
+        justify-content: space-between;
+        height: fit-content;
     }
-    
+
+    .product-container {
+        .details {
+            padding: 20px;
+            gap: 20px;
+
+            .name::before {
+                margin-bottom: 20px;
+            }
+        }
+
+        .image {
+            background-image: url('../images/image-product-mobile.jpg');
+            border-top-right-radius: 12px;
+            border-bottom-left-radius: 0;
+        }
+
+    }
 }
